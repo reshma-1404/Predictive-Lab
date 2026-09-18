@@ -60,3 +60,25 @@ project-name/
 ```
 
 Each project should document its dataset, preprocessing steps, model choices, tuning method, evaluation metrics, and conclusions.
+
+## Run the Programs
+
+Install the dependencies from the repository root:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+The programs expect a CSV dataset. Pass the dataset path and optionally replace
+the default target column with `--target`:
+
+```bash
+python programs/student_performance.py data/student_performance.csv --target performance
+python programs/house_price.py data/house_prices.csv --target price
+python programs/student_admission.py data/admissions.csv --target admitted
+python programs/fraud_detection.py data/transactions.csv --target Class
+python programs/customer_churn.py data/customers.csv --target Churn
+```
+
+The scripts automatically identify numeric and categorical columns, fill missing
+values, encode categorical features, train the model, and print test-set metrics.
